@@ -3,20 +3,18 @@ var gamePattern = [];
 var userClickedPattern = [];
 var started = false;
 var level = 0;
-var begain = false;
 
 
-$(document).on('keydown', function(event){
-    if(!started || !begain)
-    {
-        $('#level-title').text('Level ' + level);
+// $(document).on('keydown', function(event){
+//     if(!started)
+//     {
+//         $('#level-title').text('Level ' + level);
 
-        nextSequence();
-        started = true;
-        begain = true;
-    }
+//         nextSequence();
+//         started = true;
+//     }
     
-});
+// });
 
 
 
@@ -58,7 +56,6 @@ function startOver()
     level = 0;
     gamePattern = [];
     started = false;
-    begain = false;
 }
 
 
@@ -84,7 +81,6 @@ function nextSequence()
 
 
 $(".btn").on('click', function(){
-    begain = true;
     
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
@@ -98,20 +94,20 @@ $(".btn").on('click', function(){
     console.log(userClickedPattern);
 });
 
-$(document).on('touchstart', function(){
-    begain = true;
+// $(document).on('touchstart', function(){
+//     begain = true;
     
-    var userChosenColour = this.id;
-    userClickedPattern.push(userChosenColour);
+//     var userChosenColour = this.id;
+//     userClickedPattern.push(userChosenColour);
 
-    playSound(userChosenColour);
+//     playSound(userChosenColour);
 
-    animatePress(userChosenColour);
+//     animatePress(userChosenColour);
 
-    checkAnswer(userClickedPattern.length-1);
+//     checkAnswer(userClickedPattern.length-1);
     
-    console.log(userClickedPattern);
-});
+//     console.log(userClickedPattern);
+// });
 
 
 
