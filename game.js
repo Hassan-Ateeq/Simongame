@@ -1,97 +1,19 @@
-// var buttonColours = ["red", "blue", "green", "yellow"];
-// var gamePattern = [];
-// var userClickedPattern = [];
-// var level = 0;
-// var started = false;
-
-
-
-// $(document).on("keydown", function(event)
-// {
-//     if(!started)
-//     {
-//         $("h1").html("Level " + level);
-//         nextSequence();
-//         started = true;
-//     }
-// })
-
-
-
-// $(".btn").on("click", function(){
-//     var userChosenColour = $(this).attr("id");
-//     console.log(userChosenColour);
-//     // var userChosenBtn = $(this).attr("class");
-
-//     playSound(userChosenColour);
-//     animatePress(userChosenColour);
-//     userClickedPattern.push(userChosenColour);
-// });
-// function nextSequence()
-// {
-//     level++;
-
-//     $("#level-title").text("Level " + level);
-//     var randomNumber = Math.floor(Math.random()*4);
-
-//     var randomChosenColour = buttonColours[randomNumber];
-
-//     gamePattern.push(randomChosenColour);
-
-//     $("#" + randomChosenColour).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
-//     playSound(randomChosenColour);
-//     $("h1").html("Level " + level);
-
-//     level++;
-// }
-
-// function playSound(name)
-// {
-//     var audio = new Audio('sounds/' + name + '.mp3');
-//     audio.play();
-// }
-
-// function animatePress(currentColour)
-// {
-//     $("#" + currentColour).addClass("pressed");
-
-//     setTimeout(function() {
-//         $("#" + currentColour).removeClass("pressed");
-//     }, 100);
-// }
-
-
-// function checkAnswer(currentLevel)
-// {
-    
-// }
-
-
-
-
-
-// $(document).on("keydown", function(event){
-//     // console.log(event.key);
-//     nextSequence();
-// });
-
-
-
-
 var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 var userClickedPattern = [];
 var started = false;
 var level = 0;
+var begain = false;
 
 
 $(document).on('keydown', function(event){
-    if(!started)
+    if(!started || !begain)
     {
         $('#level-title').text('Level ' + level);
 
         nextSequence();
         started = true;
+        begain = true;
     }
     
 });
@@ -136,6 +58,7 @@ function startOver()
     level = 0;
     gamePattern = [];
     started = false;
+    begain = false;
 }
 
 
@@ -161,6 +84,8 @@ function nextSequence()
 
 
 $(".btn").on('click', function(){
+    begain = true;
+    
     var userChosenColour = this.id;
     userClickedPattern.push(userChosenColour);
 
