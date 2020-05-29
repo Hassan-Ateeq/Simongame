@@ -98,6 +98,21 @@ $(".btn").on('click', function(){
     console.log(userClickedPattern);
 });
 
+$(".btn").on('touchStart', function(){
+    begain = true;
+    
+    var userChosenColour = this.id;
+    userClickedPattern.push(userChosenColour);
+
+    playSound(userChosenColour);
+
+    animatePress(userChosenColour);
+
+    checkAnswer(userClickedPattern.length-1);
+    
+    console.log(userClickedPattern);
+});
+
 
 
 function playSound(name)
