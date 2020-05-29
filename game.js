@@ -98,7 +98,7 @@ $(".btn").on('click', function(){
     console.log(userClickedPattern);
 });
 
-$(".btn").on('touchStart', function(){
+$(".btn").on('touchstart', function(){
     begain = true;
     
     var userChosenColour = this.id;
