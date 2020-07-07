@@ -64,3 +64,9 @@ body {
 .copyright a{
 	color: yellow;
 }
+
+.version{
+  color: white;
+  font-size: small;
+  text-align: right;
+}
